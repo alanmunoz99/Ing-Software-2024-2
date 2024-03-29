@@ -30,15 +30,17 @@ CREATE TABLE `peliculas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `rentar` (
-  `idRentar` int NOT NULL AUTO_INCREMENT,
-  `idUsuario` int NOT NULL,
-  `idPelicula` int NOT NULL,
-  `fecha_renta` datetime NOT NULL,
-  `dias_de_renta` int DEFAULT '5',
-  `estatus` tinyint DEFAULT '0',
-  PRIMARY KEY (`idRentar`),
-  KEY `idUsuario_idx` (`idUsuario`),
-  KEY `idPelicula_idx` (`idPelicula`),
-  CONSTRAINT `idPelicula` FOREIGN KEY (`idPelicula`) REFERENCES `peliculas` (`idPelicula`),
-  CONSTRAINT `idUsuario` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`idUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+    `idRentar` INT NOT NULL AUTO_INCREMENT,
+    `idUsuario` INT NOT NULL,
+    `idPelicula` INT NOT NULL,
+    `fecha_renta` DATETIME NOT NULL,
+    `dias_de_renta` INT DEFAULT '5',
+    `estatus` TINYINT DEFAULT '0',
+    PRIMARY KEY (`idRentar`),
+    KEY `idUsuario_idx` (`idUsuario`),
+    KEY `idPelicula_idx` (`idPelicula`),
+    CONSTRAINT `idPelicula` FOREIGN KEY (`idPelicula`)
+        REFERENCES `peliculas` (`idPelicula`),
+    CONSTRAINT `idUsuario` FOREIGN KEY (`idUsuario`)
+        REFERENCES `usuarios` (`idUsuario`)
+)  ENGINE=INNODB AUTO_INCREMENT=2 DEFAULT CHARSET=UTF8MB4 COLLATE = UTF8MB4_0900_AI_CI;
